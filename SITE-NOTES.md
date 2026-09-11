@@ -20,3 +20,8 @@ Before launch: replace the sample reviews on index.html, confirm the free-delive
 - Google rating (4.6) and review bars on index.html: pull live numbers from the Google Business Profile.
 - Reliance Fresh and Lulu logos are text placeholders in assets/logos; Amazon, Flipkart, BigBasket, SPAR, noon and Google are official marks from Wikimedia Commons and Simple Icons.
 - Sample reviews, job openings, delivery threshold and welcome offer.
+
+## Accounts, orders and checkout
+- `checkout.html` is the checkout: contact, delivery, payment (UPI, card, net banking, cash on delivery), order summary with promo codes `WELCOME10` and `FLEX15` (samples).
+- Sign in with Google and the orders database run on Supabase. Follow `SUPABASE-SETUP.md` to create the project, run `supabase/migrations/0001_users_and_orders.sql`, enable Google, and paste the URL and anon key into `assets/config.js`.
+- Until that is done, sign-in shows a notice and checkout records demo orders in the browser only. The card form is a design preview and never sends card data anywhere; a real launch would hand payment to Razorpay or a similar gateway.

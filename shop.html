@@ -120,15 +120,24 @@
 <div class="search" id="accountPanel" aria-hidden="true" role="dialog" aria-label="Account">
   <div class="search-scrim"></div>
   <div class="search-box acc-box">
-    <form id="accountForm" novalidate>
-      <div class="acc-head"><h3>Sign in or create an account</h3><button type="button" class="icon-btn" id="accountClose" aria-label="Close"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
-      <p class="acc-sub">We will email you a one-time sign-in link. No password to remember.</p>
-      <label for="accEmail">Email address</label>
-      <input id="accEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+    <div class="acc-head"><h3 id="accTitle">Sign in to Fit & Flex</h3><button type="button" class="icon-btn" id="accountClose" aria-label="Close"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div id="accSignedOut" class="acc-body">
+      <p class="acc-sub">Sign in to save your bag, see your orders and check out faster.</p>
+      <button type="button" class="btn btn-google" id="googleBtn"><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.4 5.7c4.3-4 7.2-9.9 7.2-17.4z"/><path fill="#FBBC05" d="M10.5 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.9 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Continue with Google</button>
+      <div class="acc-or"><span>or</span></div>
+      <form id="accountForm" novalidate>
+        <label for="accEmail">Email address</label>
+        <input id="accEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <button class="btn btn-navy" type="submit">Email me a sign-in link</button>
+      </form>
       <div class="msg" id="accMsg" aria-live="polite"></div>
-      <button class="btn btn-primary" type="submit">Email me a sign-in link</button>
-      <p class="acc-note">Orders, addresses and your saved bag sync once you sign in. Connects to Shopify customer accounts in the live build.</p>
-    </form>
+      <p class="acc-note" id="accNote">Orders and your bag are saved to your account.</p>
+    </div>
+    <div id="accSignedIn" class="acc-body" hidden>
+      <div class="acc-user"><img id="accAvatar" alt="" width="48" height="48"><div><b id="accName"></b><small id="accEmailOut"></small></div><button type="button" class="btn btn-ghost" id="signOutBtn">Sign out</button></div>
+      <h4 class="acc-h4">My orders</h4>
+      <div id="accOrders" class="acc-orders"><p class="acc-note">No orders yet.</p></div>
+    </div>
   </div>
 </div>
 <div class="scrim" id="scrim"></div>
@@ -144,6 +153,8 @@
 </aside>
 <div class="toast" id="toast" role="status"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="assets/config.js"></script>
 <script src="assets/site.js"></script>
 <script>
 const grid = document.getElementById("shopGrid"), filters = document.getElementById("filters"), countMsg = document.getElementById("countMsg"), sortEl = document.getElementById("sort"), none = document.getElementById("noResults");

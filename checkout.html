@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Checkout | Fit & Flex</title>
+<meta name="description" content="Secure checkout for Fit & Flex granola, muesli, Power Oats and Protein Puffs.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="shop">
+<div id="progress" aria-hidden="true"></div>
+<div class="bar">Free delivery on orders above <b>&#8377;499</b> across India. Now shipping to the UAE.</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Fit & Flex home"><img src="assets/img/logo.png" alt="Fit & Flex. Eat healthy, live well." width="160" height="96"></a>
+    <ul class="menu">
+      <li><a data-page="home" href="index.html">Home</a></li>
+      <li><a data-page="shop" href="shop.html">Shop</a></li>
+      <li><a data-page="story" href="story.html">Our story</a></li>
+      <li><a data-page="process" href="process.html">How it's baked</a></li>
+      <li><a data-page="contact" href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Search products"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="icon-btn" id="accountBtn" aria-label="Account"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
+      <button class="icon-btn" id="cartBtn" aria-label="Open bag"><svg class="ico" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H7"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="count" id="cartCount" hidden>0</span></button>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu"><svg class="ico" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <header>
+    <img src="assets/img/logo.png" alt="Fit & Flex" style="height:40px;width:auto">
+    <button class="icon-btn" id="closeMenu" aria-label="Close menu"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </header>
+  <ul>
+    <li><a data-page="home" href="index.html">Home</a></li>
+    <li><a data-page="shop" href="shop.html">Shop</a></li>
+    <li><a data-page="story" href="story.html">Our story</a></li>
+    <li><a data-page="process" href="process.html">How it's baked</a></li>
+    <li><a data-page="contact" href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<main>
+<section class="wrap co" id="checkoutPage">
+  <div class="co-head">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span><a href="shop.html">Shop</a><span>/</span><span>Checkout</span></div>
+    <h1>Check<span class="accent">out</span></h1>
+    <ol class="co-steps" aria-label="Checkout steps">
+      <li class="on" data-step="1"><span>1</span>Contact</li>
+      <li data-step="2"><span>2</span>Delivery</li>
+      <li data-step="3"><span>3</span>Payment</li>
+    </ol>
+  </div>
+
+  <div class="co-grid">
+    <form class="co-form" id="coForm" novalidate>
+      <!-- 1. Contact -->
+      <section class="co-card" id="coContact">
+        <header><span class="n">1</span><div><h2>Contact</h2><p>Where we send the order confirmation.</p></div></header>
+        <div class="co-auth" id="coAuth">
+          <button type="button" class="btn btn-google" id="coGoogle"><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.4 5.7c4.3-4 7.2-9.9 7.2-17.4z"/><path fill="#FBBC05" d="M10.5 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.9 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Continue with Google</button>
+          <span class="co-or">or continue as guest</span>
+        </div>
+        <div class="co-user" id="coUser" hidden><img id="coAvatar" alt="" width="40" height="40"><div><b id="coName"></b><small id="coEmailOut"></small></div><span class="verified"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="m5 12 4.5 4.5L19 7"/></svg>Signed in</span></div>
+        <div class="two">
+          <div class="f"><label for="coEmail">Email</label><input id="coEmail" name="email" type="email" autocomplete="email" required></div>
+          <div class="f"><label for="coPhone">Mobile number</label><input id="coPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 digits" required></div>
+        </div>
+      </section>
+
+      <!-- 2. Delivery -->
+      <section class="co-card" id="coDelivery">
+        <header><span class="n">2</span><div><h2>Delivery</h2><p>We ship across India in 2 to 5 working days.</p></div></header>
+        <div class="two">
+          <div class="f"><label for="coFirst">First name</label><input id="coFirst" name="first" autocomplete="given-name" required></div>
+          <div class="f"><label for="coLast">Last name</label><input id="coLast" name="last" autocomplete="family-name" required></div>
+        </div>
+        <div class="f"><label for="coAddr">Address</label><input id="coAddr" name="address" autocomplete="address-line1" placeholder="Flat, building, street" required></div>
+        <div class="two">
+          <div class="f"><label for="coCity">City</label><input id="coCity" name="city" autocomplete="address-level2" required></div>
+          <div class="f"><label for="coPin">PIN code</label><input id="coPin" name="pin" inputmode="numeric" autocomplete="postal-code" placeholder="6 digits" required></div>
+        </div>
+        <div class="two">
+          <div class="f"><label for="coState">State</label><select id="coState" name="state" required><option value="">Select state</option><option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Delhi</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option></select></div>
+          <div class="f"><label for="coCountry">Country</label><select id="coCountry" name="country"><option>India</option><option>United Arab Emirates</option></select></div>
+        </div>
+        <label class="co-check"><input type="checkbox" id="coSave" checked> Save this address for next time</label>
+      </section>
+
+      <!-- 3. Payment -->
+      <section class="co-card" id="coPayment">
+        <header><span class="n">3</span><div><h2>Payment</h2><p>All payments are encrypted. UPI and cards are settled by our payment partner.</p></div></header>
+        <div class="pay-tabs" role="tablist" aria-label="Payment method">
+          <button type="button" role="tab" data-pay="upi" aria-selected="true"><svg class="ico" viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="9"/></svg>UPI</button>
+          <button type="button" role="tab" data-pay="card" aria-selected="false"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>Card</button>
+          <button type="button" role="tab" data-pay="netbanking" aria-selected="false"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10 12 4l9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/></svg>Net banking</button>
+          <button type="button" role="tab" data-pay="cod" aria-selected="false"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>Cash on delivery</button>
+        </div>
+
+        <div class="pay-panel" id="pay-upi">
+          <div class="upi-grid">
+            <div class="upi-qr" aria-label="UPI QR code placeholder"><div class="qr"></div><small>Scan with any UPI app</small></div>
+            <div class="f"><label for="upiId">Or enter your UPI ID</label><div class="upi-row"><input id="upiId" placeholder="name@bank" autocomplete="off"><button type="button" class="btn btn-ghost" id="upiVerify">Verify</button></div><small class="hint" id="upiHint">GPay, PhonePe, Paytm, BHIM and every other UPI app.</small></div>
+          </div>
+        </div>
+
+        <div class="pay-panel" id="pay-card" hidden>
+          <div class="card-preview" id="cardPreview"><span class="cp-brand" id="cpBrand">CARD</span><span class="cp-num" id="cpNum">•••• •••• •••• ••••</span><span class="cp-name" id="cpName">YOUR NAME</span><span class="cp-exp" id="cpExp">MM/YY</span></div>
+          <div class="f"><label for="cardNum">Card number</label><input id="cardNum" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+          <div class="f"><label for="cardName">Name on card</label><input id="cardName" autocomplete="cc-name"></div>
+          <div class="two">
+            <div class="f"><label for="cardExp">Expiry</label><input id="cardExp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5"></div>
+            <div class="f"><label for="cardCvv">CVV</label><input id="cardCvv" inputmode="numeric" autocomplete="cc-csc" placeholder="3 digits" maxlength="4" type="password"></div>
+          </div>
+          <small class="hint">This is a design preview. No card details are stored or sent anywhere.</small>
+        </div>
+
+        <div class="pay-panel" id="pay-netbanking" hidden>
+          <div class="bank-grid">
+            <label class="bank"><input type="radio" name="bank" value="HDFC Bank" checked><span>HDFC Bank</span></label>
+            <label class="bank"><input type="radio" name="bank" value="ICICI Bank"><span>ICICI Bank</span></label>
+            <label class="bank"><input type="radio" name="bank" value="State Bank of India"><span>State Bank of India</span></label>
+            <label class="bank"><input type="radio" name="bank" value="Axis Bank"><span>Axis Bank</span></label>
+            <label class="bank"><input type="radio" name="bank" value="Kotak Mahindra"><span>Kotak Mahindra</span></label>
+            <label class="bank"><input type="radio" name="bank" value="Other"><span>Other bank</span></label>
+          </div>
+        </div>
+
+        <div class="pay-panel" id="pay-cod" hidden>
+          <p class="cod-note">Pay in cash or by UPI when the parcel arrives. Available across India for orders under &#8377;3,000. A &#8377;30 handling fee applies.</p>
+        </div>
+
+        <div class="msg" id="coMsg" aria-live="polite"></div>
+        <button class="btn btn-primary co-pay" type="submit" id="payBtn"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span id="payLabel">Pay &#8377;0</span></button>
+        <p class="co-secure">256-bit encrypted. By paying you agree to the <a href="policies.html#terms">terms</a> and <a href="policies.html#returns">returns policy</a>.</p>
+      </section>
+    </form>
+
+    <aside class="co-summary" id="coSummary">
+      <h2>Your bag</h2>
+      <div class="co-items" id="coItems"></div>
+      <form class="promo" id="promoForm" novalidate><input id="promoCode" placeholder="Promo code" autocomplete="off"><button class="btn btn-ghost" type="submit">Apply</button></form>
+      <div class="msg" id="promoMsg"></div>
+      <dl class="totals">
+        <div><dt>Subtotal</dt><dd id="tSub">&#8377;0</dd></div>
+        <div id="tDiscRow" hidden><dt>Discount</dt><dd id="tDisc">&#8377;0</dd></div>
+        <div><dt>Delivery</dt><dd id="tShip">&#8377;0</dd></div>
+        <div id="tCodRow" hidden><dt>COD handling</dt><dd>&#8377;30</dd></div>
+        <div class="grand"><dt>Total</dt><dd id="tTotal">&#8377;0</dd></div>
+      </dl>
+      <p class="co-ship-note" id="shipNote"></p>
+      <ul class="co-trust">
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>Secure payment</li>
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg>Ships in 1 working day</li>
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v5h5"/></svg>7-day returns on unopened packs</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="co-done" id="coDone" hidden>
+    <div class="done-mark"><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></svg></div>
+    <h2>Order <span class="accent" id="doneNo">#0</span> placed</h2>
+    <p class="lead" id="doneText">Thank you. A confirmation is on its way to your inbox, and the parcel leaves Ahmedabad within one working day.</p>
+    <div class="done-summary" id="doneSummary"></div>
+    <div class="hero-cta"><a class="btn btn-primary" href="shop.html">Keep shopping</a><button type="button" class="btn btn-ghost" id="doneOrders">View my orders</button></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <img src="assets/img/logo.png" alt="Fit & Flex">
+      <p>India's first mindful snacking brand. Baked, wholesome, real ingredients. Made by Niva Nutrifoods in Ahmedabad since 2019.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/fitandflexindia/" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+        <a href="https://www.facebook.com/fitandflexindia" aria-label="Facebook"><svg class="ico" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+        <a href="https://www.youtube.com/@fitandflexindia" aria-label="YouTube"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></a>
+      </div>
+    </div>
+    <div><h4>Shop</h4><ul><li><a href="shop.html?cat=granola">Granola</a></li><li><a href="shop.html?cat=muesli">Muesli</a></li><li><a href="shop.html?cat=oats">Power Oats</a></li><li><a href="shop.html?cat=puffs">Protein Puffs</a></li><li><a href="shop.html">All products</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="story.html">Our story</a></li><li><a href="process.html">How it's baked</a></li><li><a href="contact.html#trade">Trade enquiries</a></li><li><a href="contact.html#careers">Careers</a></li></ul></div>
+    <div><h4>Support</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="policies.html#delivery">Delivery and returns</a></li><li><a href="contact.html#faq">FAQ</a></li><li><a href="policies.html#privacy">Privacy policy</a></li><li><a href="policies.html#terms">Terms and conditions</a></li></ul></div>
+  </div>
+  <div class="wrap foot-bottom"><span>&copy; 2026 Niva Nutrifoods LLP. Fit & Flex is a registered trademark.</span><span>Cards, UPI, net banking and cash on delivery</span></div>
+</footer>
+
+<nav class="mnav" aria-label="Quick navigation">
+  <a href="index.html" data-page="home"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+  <a href="shop.html" data-page="shop"><svg class="ico" viewBox="0 0 24 24"><path d="M4 7h16l-1.5 12h-13z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span>Shop</span></a>
+  <button type="button" data-open="search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span></button>
+  <button type="button" data-open="cart"><svg class="ico" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H7"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span>Bag</span><i class="mcount" hidden>0</i></button>
+</nav>
+<div class="search" id="searchPanel" aria-hidden="true" role="dialog" aria-label="Search products">
+  <div class="search-scrim"></div>
+  <div class="search-box">
+    <form id="searchForm" role="search">
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" placeholder="Search granola, oats, muesli, puffs" autocomplete="off" aria-label="Search products">
+      <kbd>Esc</kbd>
+      <button type="button" class="icon-btn" id="searchClose" aria-label="Close search"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </form>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+<div class="search" id="accountPanel" aria-hidden="true" role="dialog" aria-label="Account">
+  <div class="search-scrim"></div>
+  <div class="search-box acc-box">
+    <div class="acc-head"><h3 id="accTitle">Sign in to Fit & Flex</h3><button type="button" class="icon-btn" id="accountClose" aria-label="Close"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div id="accSignedOut" class="acc-body">
+      <p class="acc-sub">Sign in to save your bag, see your orders and check out faster.</p>
+      <button type="button" class="btn btn-google" id="googleBtn"><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.4 5.7c4.3-4 7.2-9.9 7.2-17.4z"/><path fill="#FBBC05" d="M10.5 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.9 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Continue with Google</button>
+      <div class="acc-or"><span>or</span></div>
+      <form id="accountForm" novalidate>
+        <label for="accEmail">Email address</label>
+        <input id="accEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <button class="btn btn-navy" type="submit">Email me a sign-in link</button>
+      </form>
+      <div class="msg" id="accMsg" aria-live="polite"></div>
+      <p class="acc-note" id="accNote">Orders and your bag are saved to your account.</p>
+    </div>
+    <div id="accSignedIn" class="acc-body" hidden>
+      <div class="acc-user"><img id="accAvatar" alt="" width="48" height="48"><div><b id="accName"></b><small id="accEmailOut"></small></div><button type="button" class="btn btn-ghost" id="signOutBtn">Sign out</button></div>
+      <h4 class="acc-h4">My orders</h4>
+      <div id="accOrders" class="acc-orders"><p class="acc-note">No orders yet.</p></div>
+    </div>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag" aria-hidden="true">
+  <header><h3>Your bag</h3><button class="icon-btn" id="closeCart" aria-label="Close bag"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+  <div class="ship"><span id="shipMsg">Add &#8377;499 for free delivery</span><div class="track"><div class="fill" id="shipFill"></div></div></div>
+  <div class="items" id="items"></div>
+  <footer>
+    <div class="total"><span>Subtotal</span><span id="subtotal">&#8377;0</span></div>
+    <button class="btn btn-primary" id="checkout">Checkout</button>
+    <button class="btn btn-ghost" id="continueBtn">Continue shopping</button>
+  </footer>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(() => {
+  const $ = id => document.getElementById(id), fmt = FF.fmt, CFG = window.FF_CONFIG || {};
+  const FREE = CFG.FREE_SHIP || 499, SHIP = CFG.SHIPPING || 49, COD_FEE = 30;
+  let pay = "upi", discount = 0, promo = "";
+  const PROMOS = { WELCOME10: .10, FLEX15: .15 }; // sample codes for the mockup
+
+  /* ----- summary ----- */
+  function lines(){ return FF.cart().map(l => { const p = FF.byId(l.id); return { ...l, p, unit: p.price[l.size] }; }); }
+  function totals(){
+    const ls = lines(); const sub = ls.reduce((a, l) => a + l.unit * l.qty, 0);
+    discount = promo ? Math.round(sub * PROMOS[promo]) : 0;
+    const ship = sub === 0 ? 0 : (sub - discount >= FREE ? 0 : SHIP), cod = pay === "cod" ? COD_FEE : 0;
+    return { ls, sub, ship, cod, total: Math.max(0, sub - discount + ship + cod) };
+  }
+  function paint(){
+    const t = totals();
+    $("coItems").innerHTML = t.ls.length ? t.ls.map(l => `<div class="co-item"><img src="${FF.IMG(l.p.images[0])}" alt="" class="${l.p.cover ? "cover" : ""}"><div><b>${l.p.name}</b><small>${l.size}</small><div class="qty"><button type="button" data-q="${l.id}|${l.size}" data-d="-1" aria-label="Decrease">−</button><span>${l.qty}</span><button type="button" data-q="${l.id}|${l.size}" data-d="1" aria-label="Increase">+</button></div></div><b class="co-price">${fmt(l.unit * l.qty)}</b></div>`).join("")
+      : `<div class="empty"><p>Your bag is empty.</p><a class="btn btn-navy" href="shop.html">Browse the shop</a></div>`;
+    $("tSub").textContent = fmt(t.sub); $("tShip").textContent = t.ship ? fmt(t.ship) : "Free"; $("tTotal").textContent = fmt(t.total);
+    $("tDiscRow").hidden = !discount; $("tDisc").textContent = "−" + fmt(discount); $("tCodRow").hidden = pay !== "cod";
+    $("payLabel").innerHTML = pay === "cod" ? `Place order, pay ${fmt(t.total)} on delivery` : `Pay ${fmt(t.total)}`;
+    const left = FREE - (t.sub - discount); $("shipNote").textContent = t.sub === 0 ? "" : left > 0 ? `Add ${fmt(left)} more for free delivery.` : "Free delivery unlocked.";
+    $("payBtn").disabled = !t.ls.length;
+  }
+  $("coItems").addEventListener("click", e => { const b = e.target.closest("[data-q]"); if (!b) return; const [id, size] = b.dataset.q.split("|"); FF.setQty(id, size, +b.dataset.d); paint(); });
+  $("promoForm").addEventListener("submit", e => { e.preventDefault(); const c = $("promoCode").value.trim().toUpperCase(); if (PROMOS[c]) { promo = c; $("promoMsg").textContent = `${c} applied: ${PROMOS[c] * 100}% off.`; } else { promo = ""; $("promoMsg").textContent = c ? "That code is not valid." : ""; } paint(); });
+
+  /* ----- payment tabs ----- */
+  document.querySelectorAll(".pay-tabs [data-pay]").forEach(b => b.addEventListener("click", () => {
+    pay = b.dataset.pay; document.querySelectorAll(".pay-tabs [data-pay]").forEach(x => x.setAttribute("aria-selected", x === b));
+    document.querySelectorAll(".pay-panel").forEach(p => p.hidden = p.id !== "pay-" + pay); paint();
+  }));
+  $("upiVerify").onclick = () => { const v = $("upiId").value.trim(); $("upiHint").textContent = /^[\w.\-]{2,}@[a-z]{2,}$/i.test(v) ? `${v} looks valid. You will get a payment request in your UPI app.` : "Enter a UPI ID like name@okhdfcbank."; };
+  // card preview + formatting
+  const brand = n => /^4/.test(n) ? "VISA" : /^5[1-5]/.test(n) ? "MASTERCARD" : /^3[47]/.test(n) ? "AMEX" : /^(60|65|81)/.test(n) ? "RUPAY" : "CARD";
+  $("cardNum").addEventListener("input", e => { const d = e.target.value.replace(/\D/g, "").slice(0, 16); e.target.value = d.replace(/(.{4})/g, "$1 ").trim(); $("cpNum").textContent = (d.padEnd(16, "•").match(/.{1,4}/g) || []).join(" "); $("cpBrand").textContent = brand(d); });
+  $("cardName").addEventListener("input", e => $("cpName").textContent = (e.target.value || "YOUR NAME").toUpperCase());
+  $("cardExp").addEventListener("input", e => { const d = e.target.value.replace(/\D/g, "").slice(0, 4); e.target.value = d.length > 2 ? d.slice(0, 2) + "/" + d.slice(2) : d; $("cpExp").textContent = e.target.value || "MM/YY"; });
+
+  /* ----- steps highlight as the user fills in ----- */
+  const stepEls = [...document.querySelectorAll(".co-steps li")];
+  const spy = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { const i = ["coContact","coDelivery","coPayment"].indexOf(en.target.id); stepEls.forEach((s, j) => s.classList.toggle("on", j === i)); } }), { rootMargin: "-30% 0px -55% 0px" });
+  ["coContact","coDelivery","coPayment"].forEach(id => spy.observe($(id)));
+
+  /* ----- auth ----- */
+  function paintUser(u){
+    $("coUser").hidden = !u; $("coAuth").hidden = !!u;
+    if (u) { const m = u.user_metadata || {}; $("coName").textContent = m.full_name || m.name || u.email; $("coEmailOut").textContent = u.email; const av = $("coAvatar"); if (m.avatar_url) { av.src = m.avatar_url; av.hidden = false; } else av.hidden = true; if (!$("coEmail").value) $("coEmail").value = u.email; const nm = (m.full_name || "").split(" "); if (nm[0] && !$("coFirst").value) { $("coFirst").value = nm[0]; $("coLast").value = nm.slice(1).join(" "); } }
+  }
+  FF.onAuth(paintUser);
+  $("coGoogle").onclick = () => FF.signInGoogle("checkout.html");
+  try { const saved = JSON.parse(localStorage.getItem("ff-address") || "null"); if (saved) Object.entries(saved).forEach(([k, v]) => { const el = document.querySelector(`[name="${k}"]`); if (el && !el.value) el.value = v; }); } catch (e) {}
+
+  /* ----- submit ----- */
+  $("coForm").addEventListener("submit", async e => {
+    e.preventDefault(); const msg = $("coMsg"); msg.textContent = "";
+    const f = e.target; const bad = [...f.querySelectorAll("#coContact [required], #coDelivery [required]")].find(i => !i.validity.valid || (i.id === "coPhone" && !/^\d{10}$/.test(i.value.replace(/\D/g, ""))) || (i.id === "coPin" && !/^\d{6}$/.test(i.value)));
+    if (bad) { msg.textContent = "Please complete the highlighted field."; bad.classList.add("bad"); bad.focus(); bad.addEventListener("input", () => bad.classList.remove("bad"), { once: true }); return; }
+    if (pay === "card") { const d = $("cardNum").value.replace(/\D/g, ""); if (d.length < 16 || !/^\d{2}\/\d{2}$/.test($("cardExp").value) || $("cardCvv").value.length < 3 || !$("cardName").value.trim()) { msg.textContent = "Check the card details."; return; } }
+    if (pay === "upi" && $("upiId").value && !/^[\w.\-]{2,}@[a-z]{2,}$/i.test($("upiId").value.trim())) { msg.textContent = "That UPI ID does not look right."; return; }
+    const t = totals();
+    const address = { first: f.first.value, last: f.last.value, phone: f.phone.value, address: f.address.value, city: f.city.value, pin: f.pin.value, state: f.state.value, country: f.country.value };
+    if ($("coSave").checked) { try { localStorage.setItem("ff-address", JSON.stringify(address)); } catch (e) {} }
+    const method = pay === "netbanking" ? `netbanking:${f.bank.value}` : pay === "upi" && $("upiId").value ? `upi:${$("upiId").value.trim()}` : pay === "card" ? `card:${brand($("cardNum").value.replace(/\D/g, ""))}` : pay;
+    const btn = $("payBtn"); btn.disabled = true; $("payLabel").textContent = pay === "cod" ? "Placing order…" : "Processing payment…";
+    const res = await FF.placeOrder({ items: t.ls.map(l => ({ id: l.id, name: l.p.name, size: l.size, qty: l.qty, unit_price: l.unit })), subtotal: t.sub, shipping: t.ship + t.cod, discount, total: t.total, payment_method: method, email: f.email.value, shipping_address: address });
+    btn.disabled = false; paint();
+    if (!res.ok) { msg.textContent = res.error; return; }
+    $("doneNo").textContent = "#" + res.order_no;
+    $("doneText").textContent = res.demo ? "Demo order recorded in this browser. Connect Supabase to save real orders and payments." : "Thank you. A confirmation is on its way to your inbox, and the parcel leaves Ahmedabad within one working day.";
+    $("doneSummary").innerHTML = `<div><span>Paid with</span><b>${method.split(":")[0].toUpperCase()}</b></div><div><span>Deliver to</span><b>${address.first} ${address.last}, ${address.city} ${address.pin}</b></div><div><span>Total</span><b>${fmt(t.total)}</b></div>`;
+    document.querySelector(".co-grid").hidden = true; document.querySelector(".co-head").hidden = true; $("coDone").hidden = false; window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  $("doneOrders").onclick = () => FF.openAccount();
+  paint();
+})();
+</script>
+</body>
+</html>

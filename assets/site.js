@@ -45,7 +45,8 @@ const FF = (() => {
       images:["puffs_combo.jpg","puffs_combo_2.jpg","puffs_combo_3.jpg"], blurb:"One of each flavour. The cheapest way to find your favourite.", claims:["12 g protein per pack","Roasted, not fried","Gluten free","Five flavours"], ingredients:"See individual flavours." }
   ];
   const CATS = { granola:"Granola", muesli:"Muesli", oats:"Power Oats", puffs:"Protein Puffs" };
-  const FREE_SHIP = 499;
+  const CFG = window.FF_CONFIG || {};
+  const FREE_SHIP = CFG.FREE_SHIP || 499, SHIPPING = CFG.SHIPPING || 49;
   const fmt = n => "₹" + n.toLocaleString("en-IN");
   const byId = id => PRODUCTS.find(p => p.id === id);
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -136,6 +137,81 @@ const FF = (() => {
     const left = Math.max(0, FREE_SHIP - sub);
     $("shipMsg").textContent = left ? `Add ${fmt(left)} more for free delivery` : "You have unlocked free delivery";
     $("shipFill").style.width = Math.min(100, sub / FREE_SHIP * 100) + "%";
+  }
+
+
+  /* ---------- auth + orders (Supabase) ---------- */
+  const sb = (CFG.SUPABASE_URL && CFG.SUPABASE_ANON_KEY && window.supabase) ? window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY) : null;
+  let user = null;
+  const openAcc = () => { const acc = $("accountPanel"); paintAuth(); acc.classList.add("open"); acc.setAttribute("aria-hidden","false"); if (!user) setTimeout(() => $("accEmail").focus(), 50); };
+  const closeAcc = () => { const acc = $("accountPanel"); acc.classList.remove("open"); acc.setAttribute("aria-hidden","true"); };
+  function paintAuth(){
+    const out = $("accSignedOut"), inn = $("accSignedIn"); if (!out) return;
+    out.hidden = !!user; inn.hidden = !user;
+    if (!user) { let demo = []; try { demo = JSON.parse(localStorage.getItem("ff-orders") || "[]"); } catch (e) {} if (demo.length) { inn.hidden = false; inn.querySelector(".acc-user").hidden = true; loadOrders(); } else inn.querySelector(".acc-user").hidden = false; }
+    else inn.querySelector(".acc-user").hidden = false;
+    $("accTitle").textContent = user ? "Your account" : "Sign in to Fit & Flex";
+    if (user) {
+      const m = user.user_metadata || {};
+      $("accName").textContent = m.full_name || m.name || user.email; $("accEmailOut").textContent = user.email;
+      const av = $("accAvatar"); if (m.avatar_url) { av.src = m.avatar_url; av.hidden = false; } else av.hidden = true;
+      loadOrders();
+    }
+    const btn = $("accountBtn"); if (btn) btn.classList.toggle("signed", !!user);
+  }
+  async function loadOrders(){
+    const box = $("accOrders"); if (!box) return;
+    if (!sb || !user) { let demo = []; try { demo = JSON.parse(localStorage.getItem("ff-orders") || "[]"); } catch (e) {} box.innerHTML = demo.length ? demo.slice().reverse().map(o => `<div class="acc-order"><div><b>Order #${o.order_no}</b><small>${new Date(o.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })} · demo, saved in this browser</small><small>${o.items.map(i => `${i.qty} × ${i.name} (${i.size})`).join(", ")}</small></div><div class="acc-right"><b>${fmt(o.total)}</b><span class="status s-placed">placed</span></div></div>`).join("") : `<p class="acc-note">No orders yet. Your first one will show up here.</p>`; return; }
+    const { data, error } = await sb.from("orders").select("order_no, created_at, status, total, item_count, items").order("created_at", { ascending: false }).limit(20);
+    if (error) { box.innerHTML = `<p class="acc-note">Could not load orders: ${error.message}</p>`; return; }
+    if (!data.length) { box.innerHTML = `<p class="acc-note">No orders yet. Your first one will show up here.</p>`; return; }
+    box.innerHTML = data.map(o => `<div class="acc-order"><div><b>Order #${o.order_no}</b><small>${new Date(o.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })} · ${o.item_count} item${o.item_count === 1 ? "" : "s"}</small><small>${o.items.map(i => `${i.qty} × ${i.name} (${i.size})`).join(", ")}</small></div><div class="acc-right"><b>${fmt(o.total)}</b><span class="status s-${o.status}">${o.status}</span></div></div>`).join("");
+  }
+  const authListeners = [];
+  function onAuth(fn){ authListeners.push(fn); fn(user); }
+  function notifyAuth(){ authListeners.forEach(fn => { try { fn(user); } catch (e) {} }); }
+  async function signInGoogle(page){
+    if (!sb) { toast("Google sign-in switches on once Supabase is configured"); return; }
+    const { error } = await sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + location.pathname.replace(/[^/]*$/, "") + (page || "") } });
+    if (error) toast(error.message);
+  }
+  // Places an order. With Supabase configured and a signed-in user it writes to public.orders;
+  // otherwise it records a demo order in this browser so the flow can be walked through.
+  async function placeOrder(o){
+    if (!o.items.length) return { ok: false, error: "Your bag is empty." };
+    if (sb && user) {
+      const { data, error } = await sb.from("orders").insert({ user_id: user.id, items: o.items, item_count: o.items.reduce((a, i) => a + i.qty, 0), subtotal: o.subtotal, shipping: o.shipping, total: o.total, payment_method: o.payment_method, shipping_address: o.shipping_address, note: o.discount ? `discount ${o.discount}` : null }).select("order_no").single();
+      if (error) return { ok: false, error: "Order failed: " + error.message };
+      cart = []; save(); render(); return { ok: true, order_no: data.order_no };
+    }
+    if (sb && !user) return { ok: false, error: "Sign in with Google above to place a real order, or connect later." };
+    let demo = []; try { demo = JSON.parse(localStorage.getItem("ff-orders") || "[]"); } catch (e) {}
+    const order_no = 1000 + demo.length + 1;
+    demo.push({ order_no, created_at: new Date().toISOString(), status: "placed", ...o }); try { localStorage.setItem("ff-orders", JSON.stringify(demo)); } catch (e) {}
+    cart = []; save(); render(); return { ok: true, order_no, demo: true };
+  }
+  function initAuth(){
+    const acc = $("accountPanel"); if (!acc) return;
+    $("accountBtn").onclick = openAcc; $("accountClose").onclick = closeAcc; acc.querySelector(".search-scrim").onclick = closeAcc;
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeAcc(); });
+    if (!sb) {
+      paintAuth();
+      $("accNote").textContent = "Sign-in is not connected yet. Add the Supabase URL and key to assets/config.js (see SUPABASE-SETUP.md).";
+      $("googleBtn").onclick = () => $("accMsg").textContent = "Google sign-in switches on once Supabase is configured.";
+      $("accountForm").addEventListener("submit", e => { e.preventDefault(); $("accMsg").textContent = "Email sign-in switches on once Supabase is configured."; });
+      return;
+    }
+    const redirectTo = location.origin + location.pathname;
+    $("googleBtn").onclick = () => signInGoogle(location.pathname.split("/").pop());
+    $("accountForm").addEventListener("submit", async e => {
+      e.preventDefault(); const em = $("accEmail"), m = $("accMsg");
+      if (!em.validity.valid) { m.textContent = "Enter a valid email to get a sign-in link."; em.focus(); return; }
+      const { error } = await sb.auth.signInWithOtp({ email: em.value, options: { emailRedirectTo: redirectTo } });
+      m.textContent = error ? error.message : `Sign-in link sent to ${em.value}. Check your inbox.`;
+    });
+    $("signOutBtn").onclick = async () => { await sb.auth.signOut(); user = null; paintAuth(); toast("Signed out"); };
+    sb.auth.getSession().then(({ data }) => { user = data.session ? data.session.user : null; paintAuth(); notifyAuth(); });
+    sb.auth.onAuthStateChange((_e, session) => { user = session ? session.user : null; paintAuth(); notifyAuth(); if (user && location.hash.includes("access_token")) history.replaceState(null, "", location.pathname + location.search); });
   }
 
   /* ---------- motion ---------- */
@@ -244,16 +320,9 @@ const FF = (() => {
     document.querySelectorAll(".btn-primary").forEach(magnet);
     document.querySelectorAll(".reviews").forEach(dragScroll);
     initSearch(); scrollFX(); transitions();
-    const acc = $("accountPanel");
-    if (acc) {
-      const openAcc = () => { acc.classList.add("open"); acc.setAttribute("aria-hidden","false"); setTimeout(() => $("accEmail").focus(), 50); };
-      const closeAcc = () => { acc.classList.remove("open"); acc.setAttribute("aria-hidden","true"); };
-      $("accountBtn").onclick = openAcc; $("accountClose").onclick = closeAcc; acc.querySelector(".search-scrim").onclick = closeAcc;
-      document.addEventListener("keydown", e => { if (e.key === "Escape") closeAcc(); });
-      $("accountForm").addEventListener("submit", e => { e.preventDefault(); const em = $("accEmail"), m = $("accMsg"); if (!em.validity.valid) { m.textContent = "Enter a valid email to get a sign-in link."; em.focus(); return; } m.textContent = `Sign-in link sent to ${em.value}. Check your inbox.`; });
-    }
+    initAuth();
     $("cartBtn").onclick = openCart; document.querySelectorAll("[data-open=cart]").forEach(b => b.onclick = openCart); document.querySelectorAll("[data-open=search]").forEach(b => b.onclick = () => $("searchBtn").click()); $("closeCart").onclick = closeCart; $("continueBtn").onclick = closeCart; $("scrim").onclick = closeCart;
-    $("checkout").onclick = () => toast("Checkout connects to Shopify in the live build");
+    $("drawer").querySelector("#checkout").onclick = () => { if (!cart.length) { toast("Your bag is empty"); return; } location.href = "checkout.html"; };
     $("items").addEventListener("click", e => {
       const q = e.target.closest("[data-q]"); const r = e.target.closest("[data-rm]");
       if (q) { const l = cart[+q.dataset.q]; l.qty += +q.dataset.d; if (l.qty <= 0) cart.splice(+q.dataset.q, 1); }
@@ -276,5 +345,6 @@ const FF = (() => {
     render();
   }
   document.addEventListener("DOMContentLoaded", init);
-  return { PRODUCTS, CATS, IMG, fmt, byId, renderGrid, search, add, toast, observe, tilt, reduce };
+  function setQty(id, size, d){ const i = cart.findIndex(l => l.id === id && l.size === size); if (i < 0) return; cart[i].qty += d; if (cart[i].qty <= 0) cart.splice(i, 1); save(); render(); }
+  return { PRODUCTS, CATS, IMG, fmt, byId, renderGrid, search, add, toast, observe, tilt, reduce, cart: () => cart.map(l => ({ ...l })), setQty, placeOrder, onAuth, signInGoogle, openAccount: () => openAcc(), user: () => user };
 })();
