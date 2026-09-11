@@ -146,8 +146,8 @@ const FF = (() => {
   function countUp(el){
     const raw = el.dataset.count, end = parseFloat(raw.replace(/[^0-9.]/g, "")), prefix = raw.match(/^[^0-9]*/)[0], suffix = raw.match(/[^0-9.]*$/)[0];
     if (reduce) { el.textContent = raw; return; }
-    const t0 = performance.now(), dur = 1400;
-    const step = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = prefix + Math.round(end * e).toLocaleString("en-IN") + suffix; if (k < 1) requestAnimationFrame(step); };
+    const t0 = performance.now(), dur = 1400, dec = (raw.split(".")[1] || "").replace(/[^0-9]/g, "").length;
+    const step = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); const v = end * e; el.textContent = prefix + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString("en-IN")) + suffix; if (k < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   }
   const cio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { countUp(en.target); cio.unobserve(en.target); } }), { threshold: .6 });
