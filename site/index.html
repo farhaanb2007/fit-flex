@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Fit & Flex</title>
+<meta name="description" content="Oat-rich granola, muesli, Power Oats and Protein Puffs, slow-baked in Ahmedabad. As seen on Shark Tank India.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="home">
+<div id="progress" aria-hidden="true"></div>
+<div class="bar">Free delivery on orders above <b>&#8377;499</b> across India. Now shipping to the UAE.</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Fit & Flex home"><img src="assets/img/logo.png" alt="Fit & Flex. Eat healthy, live well." width="160" height="96"></a>
+    <ul class="menu">
+      <li><a data-page="home" href="index.html">Home</a></li>
+      <li><a data-page="shop" href="shop.html">Shop</a></li>
+      <li><a data-page="story" href="story.html">Our story</a></li>
+      <li><a data-page="process" href="process.html">How it's baked</a></li>
+      <li><a data-page="contact" href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Search products"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="icon-btn" id="accountBtn" aria-label="Account"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
+      <button class="icon-btn" id="cartBtn" aria-label="Open bag"><svg class="ico" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H7"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="count" id="cartCount" hidden>0</span></button>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu"><svg class="ico" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <header>
+    <img src="assets/img/logo.png" alt="Fit & Flex" style="height:40px;width:auto">
+    <button class="icon-btn" id="closeMenu" aria-label="Close menu"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </header>
+  <ul>
+    <li><a data-page="home" href="index.html">Home</a></li>
+    <li><a data-page="shop" href="shop.html">Shop</a></li>
+    <li><a data-page="story" href="story.html">Our story</a></li>
+    <li><a data-page="process" href="process.html">How it's baked</a></li>
+    <li><a data-page="contact" href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<main>
+<section class="vhero" aria-label="Fit & Flex granola">
+  <img class="poster" src="assets/hero-poster.jpg" alt="" width="1920" height="1080" fetchpriority="high">
+  <video id="heroVideo" autoplay muted loop playsinline poster="assets/hero-poster.jpg" preload="auto" aria-hidden="true">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="wrap">
+    <span class="eyebrow"><svg class="ico" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>As seen on Shark Tank India</span>
+    <h1><span>Oat-rich crunch.</span><span class="accent">Baked, not fried.</span></h1>
+    <p class="lead">Granola, muesli, Power Oats and Protein Puffs, slow-baked in our own plant with real fruit and no palm oil.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="shop.html">Shop the range<svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-outline-white" href="story.html">Our story</a>
+    </div>
+  </div>
+  <button class="mute" id="playToggle" aria-label="Pause video"><svg class="ico" viewBox="0 0 24 24" id="playIcon"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg></button>
+</section>
+
+<div class="marq ticker" aria-hidden="true">
+  <div class="marq-track">
+    <span>India's first mindful snacking brand</span><span>100% baked</span><span>Wholesome</span><span>Real ingredients</span><span>No palm oil</span><span>Prebiotic fibre</span><span>Under a teaspoon of added sugar</span><span>ISO 22000</span><span>BRC certified</span><span>Made in Ahmedabad</span>
+    <span>India's first mindful snacking brand</span><span>100% baked</span><span>Wholesome</span><span>Real ingredients</span><span>No palm oil</span><span>Prebiotic fibre</span><span>Under a teaspoon of added sugar</span><span>ISO 22000</span><span>BRC certified</span><span>Made in Ahmedabad</span>
+  </div>
+</div>
+
+<section class="sec" id="range">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Pick your <span class="accent">moment</span></h2>
+      <p class="lead">Breakfast, post-run, or the 4 pm craving. Every pack starts with rolled oats and ends in our slow-bake ovens.</p>
+    </div>
+    <div class="range">
+      <a class="tile t-granola reveal" style="--i:0" href="shop.html?cat=granola"><img src="assets/img/mango.png" alt=""><div class="t"><h3>Crunchy Granola</h3><p>Four flavours, prebiotic fibre, fibre of two apples per serve.</p></div><span class="go"><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      <a class="tile t-muesli reveal" style="--i:1" href="shop.html?cat=muesli"><img src="assets/img/muesli_hp.png" alt=""><div class="t"><h3>Muesli</h3><p>22 g protein or zero added sugar.</p></div><span class="go"><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      <a class="tile t-oats reveal" style="--i:2" href="shop.html?cat=oats"><img src="assets/img/oats_honey.png" alt=""><div class="t"><h3>Power Oats</h3><p>Ready to eat. No cooking.</p></div><span class="go"><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      <a class="tile t-puffs reveal" style="--i:3" href="shop.html?cat=puffs"><img src="assets/img/puffs_combo.jpg" alt=""><div class="t"><h3>Protein Puffs</h3><p>Jowar and ragi, roasted not fried. 12 g protein a pack, five flavours.</p></div><span class="go"><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      <a class="tile t-combo reveal" style="--i:4" href="shop.html?cat=combo"><img src="assets/img/oats_both.png" alt=""><div class="t"><h3>Combos</h3><p>Two-flavour packs and variety sets that save you up to &#8377;100.</p></div><span class="go"><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-label="Fit & Flex at a glance">
+  <div class="wrap">
+    <div class="stat"><b data-count="35+">0</b><span>Products across six ranges</span></div>
+    <div class="stat"><b data-count="6,000+">0</b><span>Retail stores across India</span></div>
+    <div class="stat"><b data-count="30+">0</b><span>Countries we ship to</span></div>
+    <div class="stat"><b data-count="375 MT">0</b><span>Monthly baking capacity</span></div>
+  </div>
+</section>
+
+<section class="sec" id="bestsellers">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Bestsellers</h2>
+      <p class="lead">One from each range. Hover a pack to see what is inside, pick a size, add to bag.</p>
+    </div>
+    <div class="grid" id="productGrid"></div>
+    <div class="grid-foot"><a class="btn btn-navy" href="shop.html">View all 15 products</a></div>
+  </div>
+</section>
+
+<section class="sec inside" id="inside">
+  <div class="bg" data-parallax="60" role="img" aria-label="Rolled oats, almonds, seeds, freeze-dried mango and chocolate on navy linen"></div>
+  <div class="wrap">
+    <div class="reveal" style="display:grid;gap:1.25rem;justify-items:start">
+      <h2>What is <span class="accent">actually</span> in the packs</h2>
+      <p class="lead">No flavour dust, no candied fruit, no palm oil, across all four ranges. Just what you would put in a bowl yourself, baked so it stays crunchy.</p>
+      <a class="btn btn-primary" href="process.html">See how it's baked</a>
+    </div>
+    <ul class="facts reveal">
+      <li><b>32%</b><span>rolled oats in every granola</span></li>
+      <li><b>22 g</b><span>protein per 100 g in High Protein Muesli</span></li>
+      <li><b>18 g</b><span>protein per 100 g in Power Oats, no cooking</span></li>
+      <li><b>65%</b><span>less fat in Protein Puffs than fried chips</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="ranges">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Four ranges, <span class="accent">one oven</span></h2><p class="lead">Breakfast, protein, snack. Every one of them baked, none of them fried.</p></div>
+    <div class="showcase">
+      <article class="show reveal" style="--tint:var(--mango);--i:0">
+        <div class="show-img"><img src="assets/img/mango_2.jpg" alt="Mango Coconut granola pack with ingredient call-outs" loading="lazy" width="800" height="800" data-parallax="18"></div>
+        <div class="show-copy">
+          <span class="show-kicker">Crunchy Granola</span>
+          <h3>Four fruits, one <span class="accent">crunch</span></h3>
+          <p>Mango Coconut, Happy Berries, Choco Almond and Mixed Fruit. Freeze-dried fruit, prebiotic fibre, under a teaspoon of added sugar per serve.</p>
+          <div class="show-cta"><span class="price">&#8377;299 <small>/ 275 g</small></span><button class="btn btn-primary" data-add="mango" data-size="275g">Add Mango Coconut</button><a class="lnk" href="shop.html?cat=granola">All granola</a></div>
+        </div>
+      </article>
+      <article class="show reveal" style="--tint:var(--sky);--i:1">
+        <div class="show-img"><img src="assets/img/muesli_hp_2.jpg" alt="High Protein Muesli pack held up against an orange background" loading="lazy" width="800" height="800" data-parallax="18"></div>
+        <div class="show-copy">
+          <span class="show-kicker">Muesli</span>
+          <h3>22 g protein, <span class="accent">zero nonsense</span></h3>
+          <p>High Protein Choco Almond, Zero Added Sugar Fruits Nuts and Seeds, and Nuts About Nuts. 83% whole grains, no artificial ingredients.</p>
+          <div class="show-cta"><span class="price">&#8377;449 <small>/ 450 g</small></span><button class="btn btn-primary" data-add="muesli_hp" data-size="450g">Add High Protein</button><a class="lnk" href="shop.html?cat=muesli">All muesli</a></div>
+        </div>
+      </article>
+      <article class="show reveal" style="--tint:var(--lilac);--i:2">
+        <div class="show-img"><img src="assets/img/oats_pbc_2.jpg" alt="Power Oats pack with peanut, oat and cocoa call-outs" loading="lazy" width="800" height="800" data-parallax="18"></div>
+        <div class="show-copy">
+          <span class="show-kicker">Power Oats</span>
+          <h3>Pour milk. <span class="accent">That is it.</span></h3>
+          <p>Ready-to-eat baked oats in Peanut Butter Chocolate and Honey. 18 g protein per 100 g, no cooking, no refined sugar.</p>
+          <div class="show-cta"><span class="price">&#8377;299 <small>/ 400 g</small></span><button class="btn btn-primary" data-add="oats_pbc" data-size="400g">Add Peanut Butter</button><a class="lnk" href="shop.html?cat=oats">All Power Oats</a></div>
+        </div>
+      </article>
+      <article class="show reveal" style="--tint:var(--puff);--i:3">
+        <div class="show-img"><img src="assets/img/puffs_combo_2.jpg" alt="Five flavours of Protein Puffs" loading="lazy" width="800" height="800" data-parallax="18"></div>
+        <div class="show-copy">
+          <span class="show-kicker">Protein Puffs</span>
+          <h3>The chips drawer, <span class="accent">fixed</span></h3>
+          <p>Jowar and ragi puffs, roasted not fried. 12 g protein a pack, 65% less fat than chips, gluten free. Masala, Cheese and Herbs, Lemon and Mint, Cream and Onion.</p>
+          <div class="show-cta"><span class="price">&#8377;250 <small>/ 5 x 55 g</small></span><button class="btn btn-primary" data-add="puffs_combo" data-size="5 x 55g">Add Variety Pack</button><a class="lnk" href="shop.html?cat=puffs">All puffs</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec story">
+  <div class="wrap">
+    <div class="story-copy reveal">
+      <h2>Eat healthy, <span class="accent">live well.</span></h2>
+      <p>Fit & Flex started in December 2019 when Pathik Patel, a marathon runner from Ahmedabad, went looking for a breakfast that was neither bland health food nor a sugar bomb in disguise. He could not find one, so he built a plant to make it.</p>
+      <blockquote class="quote">We want Fit & Flex to be India's most loved snacking brand in the better-for-you category.<footer>Pathik Patel, Founder</footer></blockquote>
+      <div><a class="btn btn-navy" href="story.html">Read the full story</a></div>
+    </div>
+    <div class="reveal" data-parallax="24"><img src="assets/img/runner.jpg" alt="A runner pouring milk over a bowl of granola in morning light" style="border-radius:var(--radius);box-shadow:var(--shadow)" width="1600" height="1067" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="sec trust" id="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="gbadge reveal" data-parallax="12">
+        <div class="gtop"><img src="assets/logos/google.svg" alt="Google" width="28" height="28"><span>Google Reviews</span><span class="verified"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="m5 12 4.5 4.5L19 7"/></svg>Verified business</span></div>
+        <!-- RATING PLACEHOLDER: replace 4.6 and the review count with the live figures from the Fit & Flex Google Business Profile before launch. -->
+        <div class="gscore"><b data-count="4.6">0</b><div><span class="stars" aria-label="4.6 out of 5">&#9733;&#9733;&#9733;&#9733;<i>&#9733;</i></span><small>Based on Google reviews of Fit & Flex, Ahmedabad</small></div></div>
+        <div class="gbars">
+          <div><span>5</span><i style="--w:78%"></i></div>
+          <div><span>4</span><i style="--w:15%"></i></div>
+          <div><span>3</span><i style="--w:4%"></i></div>
+          <div><span>2</span><i style="--w:2%"></i></div>
+          <div><span>1</span><i style="--w:1%"></i></div>
+        </div>
+        <a class="btn btn-ghost" href="https://www.google.com/search?q=Fit+%26+Flex+Niva+Nutrifoods+Ahmedabad+reviews" target="_blank" rel="noopener">Read reviews on Google</a>
+      </div>
+      <div class="trust-copy reveal">
+        <h2>Stocked where <span class="accent">you already shop</span></h2>
+        <p class="lead">Over six thousand stores in India and fifteen-minute delivery in the UAE. Same packs, same batch codes, same oven.</p>
+        <ul class="logo-wall" aria-label="Retailers that stock Fit & Flex">
+          <li class="reveal" style="--i:0"><img src="assets/logos/amazon.svg" alt="Amazon" loading="lazy"></li>
+          <li class="reveal" style="--i:1"><img src="assets/logos/flipkart.svg" alt="Flipkart" loading="lazy"></li>
+          <li class="reveal" style="--i:2"><img src="assets/logos/bigbasket.svg" alt="BigBasket" loading="lazy"></li>
+          <li class="reveal" style="--i:3"><img src="assets/logos/reliance.svg" alt="Reliance Fresh" loading="lazy"></li>
+          <li class="reveal" style="--i:4"><img src="assets/logos/spar.svg" alt="SPAR" loading="lazy"></li>
+          <li class="reveal" style="--i:5"><img src="assets/logos/noon.svg" alt="noon" loading="lazy"></li>
+          <li class="reveal" style="--i:6"><img src="assets/logos/lulu.svg" alt="Lulu Hypermarket" loading="lazy"></li>
+        </ul>
+        <p class="trust-note">Retail listings via Al Seer Group in the GCC and direct distribution in India. Store availability varies by city.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Crunch, <span class="accent">confirmed.</span></h2>
+      <p class="lead">They roll by on their own. Hover to pause, drag to browse.</p>
+    </div>
+    <!-- Sample review copy for the mockup. Replace with verbatim reviews from Amazon.in and the Shopify store before launch. -->
+    <div class="reviews reveal">
+      <article class="rev"><q>Finally a granola that does not turn to mush. The mango pieces actually taste like mango.</q><footer><span class="av">RS</span><div><b>Ritika S.</b><br>Pune <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></footer></article>
+      <article class="rev"><q>Power Oats with cold milk after my morning run. No cooking, 18 g protein, done in two minutes.</q><footer><span class="av">AM</span><div><b>Anand M.</b><br>Ahmedabad <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></footer></article>
+      <article class="rev"><q>Ordered on noon in Dubai. Same packs we used to carry from India, now at the door in fifteen minutes.</q><footer><span class="av">FK</span><div><b>Farah K.</b><br>Dubai <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></footer></article>
+      <article class="rev"><q>The zero added sugar muesli is the only one my dietician approved. Kids eat the Happy Berries one.</q><footer><span class="av">DR</span><div><b>Deepak R.</b><br>Bengaluru <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span></div></footer></article>
+      <article class="rev"><q>Protein Puffs replaced the office chips drawer. Masala is the crowd favourite.</q><footer><span class="av">NJ</span><div><b>Neha J.</b><br>Mumbai <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></footer></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec cta">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Get 10% off your <span class="accent">first order</span></h2>
+      <p style="margin-top:.75rem;max-width:48ch">Recipes, new flavours and early access to combos. One email a fortnight, no more.</p>
+      <form class="form" id="newsForm" novalidate>
+        <label for="email">Email address</label>
+        <div class="row"><input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required><button class="btn btn-primary" type="submit">Subscribe</button></div>
+        <div class="msg" id="formMsg" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="contact reveal">
+      <div><h3>Visit us</h3><p>408, Iscon Elegance, S.G. Highway<small>Ahmedabad 380051, Gujarat, India</small></p></div>
+      <div><h3>Trade and export</h3><p>Distributors, retailers and private label<small><a href="contact.html#trade" style="text-decoration:underline">Send a trade enquiry</a></small></p></div>
+      <div><h3>Follow</h3><p><a href="https://www.instagram.com/fitandflexindia/" target="_blank" rel="noopener" style="text-decoration:underline">@fitandflexindia</a><small>20.6K followers on Instagram. Contests, Tata Mumbai Marathon, fan love.</small></p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <img src="assets/img/logo.png" alt="Fit & Flex">
+      <p>India's first mindful snacking brand. Baked, wholesome, real ingredients. Made by Niva Nutrifoods in Ahmedabad since 2019.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/fitandflexindia/" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+        <a href="https://www.facebook.com/fitandflexindia" aria-label="Facebook"><svg class="ico" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+        <a href="https://www.youtube.com/@fitandflexindia" aria-label="YouTube"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></a>
+      </div>
+    </div>
+    <div><h4>Shop</h4><ul><li><a href="shop.html?cat=granola">Granola</a></li><li><a href="shop.html?cat=muesli">Muesli</a></li><li><a href="shop.html?cat=oats">Power Oats</a></li><li><a href="shop.html?cat=puffs">Protein Puffs</a></li><li><a href="shop.html">All products</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="story.html">Our story</a></li><li><a href="process.html">How it's baked</a></li><li><a href="contact.html#trade">Trade enquiries</a></li><li><a href="contact.html#careers">Careers</a></li></ul></div>
+    <div><h4>Support</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="policies.html#delivery">Delivery and returns</a></li><li><a href="contact.html#faq">FAQ</a></li><li><a href="policies.html#privacy">Privacy policy</a></li><li><a href="policies.html#terms">Terms and conditions</a></li></ul></div>
+  </div>
+  <div class="wrap foot-bottom"><span>&copy; 2026 Niva Nutrifoods LLP. Fit & Flex is a registered trademark.</span><span>Cards, UPI, net banking and cash on delivery</span></div>
+</footer>
+
+<nav class="mnav" aria-label="Quick navigation">
+  <a href="index.html" data-page="home"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+  <a href="shop.html" data-page="shop"><svg class="ico" viewBox="0 0 24 24"><path d="M4 7h16l-1.5 12h-13z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span>Shop</span></a>
+  <button type="button" data-open="search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span></button>
+  <button type="button" data-open="cart"><svg class="ico" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H7"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span>Bag</span><i class="mcount" hidden>0</i></button>
+</nav>
+<div class="search" id="searchPanel" aria-hidden="true" role="dialog" aria-label="Search products">
+  <div class="search-scrim"></div>
+  <div class="search-box">
+    <form id="searchForm" role="search">
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" placeholder="Search granola, oats, muesli, puffs" autocomplete="off" aria-label="Search products">
+      <kbd>Esc</kbd>
+      <button type="button" class="icon-btn" id="searchClose" aria-label="Close search"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </form>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+<div class="search" id="accountPanel" aria-hidden="true" role="dialog" aria-label="Account">
+  <div class="search-scrim"></div>
+  <div class="search-box acc-box">
+    <form id="accountForm" novalidate>
+      <div class="acc-head"><h3>Sign in or create an account</h3><button type="button" class="icon-btn" id="accountClose" aria-label="Close"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <p class="acc-sub">We will email you a one-time sign-in link. No password to remember.</p>
+      <label for="accEmail">Email address</label>
+      <input id="accEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+      <div class="msg" id="accMsg" aria-live="polite"></div>
+      <button class="btn btn-primary" type="submit">Email me a sign-in link</button>
+      <p class="acc-note">Orders, addresses and your saved bag sync once you sign in. Connects to Shopify customer accounts in the live build.</p>
+    </form>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag" aria-hidden="true">
+  <header><h3>Your bag</h3><button class="icon-btn" id="closeCart" aria-label="Close bag"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+  <div class="ship"><span id="shipMsg">Add &#8377;499 for free delivery</span><div class="track"><div class="fill" id="shipFill"></div></div></div>
+  <div class="items" id="items"></div>
+  <footer>
+    <div class="total"><span>Subtotal</span><span id="subtotal">&#8377;0</span></div>
+    <button class="btn btn-primary" id="checkout">Checkout</button>
+    <button class="btn btn-ghost" id="continueBtn">Continue shopping</button>
+  </footer>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="assets/site.js"></script>
+<script>
+FF.renderGrid(document.getElementById("productGrid"), ["mango","muesli_hp","oats_pbc","puffs_combo"].map(FF.byId));
+const v = document.getElementById("heroVideo"), pt = document.getElementById("playToggle"), pi = document.getElementById("playIcon");
+if (FF.reduce) v.pause();
+const sync = () => { const paused = v.paused; pi.innerHTML = paused ? '<path d="m8 5 11 7-11 7z"/>' : '<path d="M7 5h3v14H7zM14 5h3v14h-3z"/>'; pt.setAttribute("aria-label", paused ? "Play video" : "Pause video"); };
+pt.onclick = () => { v.paused ? v.play() : v.pause(); sync(); };
+v.addEventListener("play", sync); v.addEventListener("pause", sync); sync();
+</script>
+</body>
+</html>

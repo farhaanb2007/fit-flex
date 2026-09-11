@@ -1,0 +1,63 @@
+---
+title: Shop
+desc: All Fit & Flex granola, muesli, Power Oats and Protein Puffs with real prices and pack sizes.
+page: shop
+---
+<section class="wrap shop-hero">
+  <div class="shop-banner reveal">
+    <img class="bg" src="assets/img/shop-banner.jpg" alt="" width="1536" height="1024" fetchpriority="high" data-parallax="-24">
+    <div class="shop-copy">
+      <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Shop</span></div>
+      <h1>Shop <span class="accent">all</span></h1>
+      <p class="lead">Fifteen oat-based products, four ranges, one plant in Ahmedabad. Filter by range, sort by price, or search by name or claim.</p>
+      <form class="shop-search" id="shopSearch" role="search">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="shopQ" type="search" placeholder="Search granola, oats, muesli, puffs" aria-label="Search products" autocomplete="off">
+        <button type="button" class="clr" id="shopClear" aria-label="Clear search" hidden><svg class="ico" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        <button class="btn btn-navy" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</section>
+<section class="wrap" style="padding-bottom:5rem">
+  <div class="filters" id="filters" role="group" aria-label="Filter by range">
+    <button data-cat="all" aria-pressed="true">All</button>
+    <button data-cat="granola" aria-pressed="false">Granola</button>
+    <button data-cat="muesli" aria-pressed="false">Muesli</button>
+    <button data-cat="oats" aria-pressed="false">Power Oats</button>
+    <button data-cat="puffs" aria-pressed="false">Protein Puffs</button>
+    <button data-cat="combo" aria-pressed="false">Combos</button>
+  </div>
+  <div class="shop-meta"><span id="countMsg"></span><label>Sort <select id="sort" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option><option value="protein">High protein first</option></select></label></div>
+  <div class="grid" id="shopGrid"></div>
+  <div class="notfound" id="noResults" hidden><h2>Nothing matched</h2><p class="lead">Try a range above, or search for granola, oats, muesli or puffs.</p><button class="btn btn-navy" id="clearQ">Show everything</button></div>
+</section>
+---script---
+<script>
+const grid = document.getElementById("shopGrid"), filters = document.getElementById("filters"), countMsg = document.getElementById("countMsg"), sortEl = document.getElementById("sort"), none = document.getElementById("noResults");
+const params = new URLSearchParams(location.search);
+let cat = params.get("cat") || "all", q = params.get("q") || "", sort = "featured";
+const minPrice = p => Math.min(...Object.values(p.price));
+function apply(){
+  let list = q ? FF.search(q) : FF.PRODUCTS.slice();
+  if (cat === "combo") list = list.filter(p => p.tag === "Combo"); else if (cat !== "all") list = list.filter(p => p.cat === cat);
+  if (sort === "low") list.sort((a,b) => minPrice(a) - minPrice(b));
+  if (sort === "high") list.sort((a,b) => minPrice(b) - minPrice(a));
+  if (sort === "protein") list.sort((a,b) => (/protein/i.test(b.sub + b.tag) ? 1 : 0) - (/protein/i.test(a.sub + a.tag) ? 1 : 0));
+  FF.renderGrid(grid, list);
+  none.hidden = list.length > 0;
+  if (typeof qc !== "undefined") qc.hidden = !q;
+  countMsg.innerHTML = q ? `<span class="qchip">"${q}" <a href="shop.html${cat !== "all" ? "?cat=" + cat : ""}" aria-label="Clear search">&#215;</a></span> <span style="margin-left:.5rem">${list.length} result${list.length === 1 ? "" : "s"}</span>` : `${list.length} product${list.length === 1 ? "" : "s"}`;
+  filters.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.cat === cat));
+  const url = new URL(location); cat === "all" ? url.searchParams.delete("cat") : url.searchParams.set("cat", cat); q ? url.searchParams.set("q", q) : url.searchParams.delete("q"); history.replaceState(null, "", url);
+}
+filters.addEventListener("click", e => { const b = e.target.closest("[data-cat]"); if (b) { cat = b.dataset.cat; apply(); } });
+sortEl.addEventListener("change", () => { sort = sortEl.value; apply(); });
+document.getElementById("clearQ").onclick = () => { q = ""; cat = "all"; qi.value = ""; apply(); };
+const qi = document.getElementById("shopQ"), qc = document.getElementById("shopClear");
+qi.value = q;
+let deb; qi.addEventListener("input", () => { clearTimeout(deb); deb = setTimeout(() => { q = qi.value.trim(); apply(); }, 160); });
+document.getElementById("shopSearch").addEventListener("submit", e => { e.preventDefault(); q = qi.value.trim(); apply(); });
+qc.onclick = () => { qi.value = ""; q = ""; apply(); qi.focus(); };
+apply();
+</script>

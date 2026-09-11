@@ -1,0 +1,69 @@
+---
+title: Delivery, Returns and Policies
+desc: Fit & Flex delivery times, returns, privacy policy and terms of sale.
+page: contact
+---
+<section class="wrap phero">
+  <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Policies</span></div>
+  <h1>The <span class="accent">small print</span></h1>
+  <p class="lead">Delivery, returns, privacy and terms, written so a person can read them.</p>
+</section>
+<section class="wrap policy" style="padding-bottom:5rem">
+  <nav aria-label="Policy sections" id="polnav">
+    <a href="#delivery">Delivery</a>
+    <a href="#returns">Returns and refunds</a>
+    <a href="#privacy">Privacy policy</a>
+    <a href="#terms">Terms and conditions</a>
+  </nav>
+  <article>
+    <section id="delivery" class="reveal">
+      <h2>Delivery</h2>
+      <p>Orders are packed at our plant near Ahmedabad and handed to the courier within one working day. Delivery across India takes two to five working days; metro cities usually see it in two.</p>
+      <ul>
+        <li>Free delivery on orders above &#8377;499. Below that, the courier charge is shown at checkout before you pay.</li>
+        <li>You get a tracking link by email and SMS as soon as the parcel is scanned.</li>
+        <li>UAE orders are fulfilled by our distributor and through noon Minutes in Dubai, Abu Dhabi and Sharjah.</li>
+        <li>Cash on delivery is available across India for orders under &#8377;3,000.</li>
+      </ul>
+      <p class="upd">Delivery threshold and courier partners are placeholders for the live store settings.</p>
+    </section>
+    <section id="returns" class="reveal">
+      <h2>Returns and refunds</h2>
+      <p>Unopened packs can be returned within seven days of delivery for a full refund to the original payment method. Refunds are issued within five working days of the parcel reaching us.</p>
+      <ul>
+        <li>Opened pack with a quality issue: email a photo and the batch code printed on the back of the pouch and we will replace it, no return needed.</li>
+        <li>Damaged in transit: tell us within 48 hours of delivery and we ship a replacement.</li>
+        <li>Combo packs are returned as a whole, not as individual pouches.</li>
+      </ul>
+    </section>
+    <section id="privacy" class="reveal">
+      <h2>Privacy policy</h2>
+      <p>Niva Nutrifoods LLP collects the details needed to take and deliver your order: name, address, phone, email and payment confirmation. Payments are processed by our payment gateway; we never see or store your card number.</p>
+      <ul>
+        <li>We email you about your order, and about new products only if you subscribed. Every email has an unsubscribe link.</li>
+        <li>Your saved bag lives in your own browser until you sign in.</li>
+        <li>We do not sell personal data. Couriers receive only what they need to deliver the parcel.</li>
+        <li>To see, correct or delete your data, write to us through the <a href="contact.html" style="text-decoration:underline">contact form</a>.</li>
+      </ul>
+      <p class="upd">Draft for legal review before launch.</p>
+    </section>
+    <section id="terms" class="reveal">
+      <h2>Terms and conditions</h2>
+      <p>By placing an order on this site you agree to buy from Niva Nutrifoods LLP, 408 Iscon Elegance, S.G. Highway, Ahmedabad 380051, Gujarat, India. Prices include GST. Product images are for illustration; pack designs change from time to time.</p>
+      <ul>
+        <li>An order is accepted when we send the dispatch email, not when payment is taken.</li>
+        <li>Nutrition figures are per 100 g as printed on the pack and may vary slightly between batches.</li>
+        <li>Allergen information is on every pack. Products are made in a facility that handles nuts, gluten and milk.</li>
+        <li>Disputes fall under the jurisdiction of the courts of Ahmedabad.</li>
+      </ul>
+      <p class="upd">Draft for legal review before launch.</p>
+    </section>
+  </article>
+</section>
+---script---
+<script>
+const pl = [...document.querySelectorAll("#polnav a")], ps = pl.map(a => document.querySelector(a.getAttribute("href")));
+new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) pl.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id)); }), { rootMargin: "-30% 0px -60% 0px" }).observe;
+const pio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) pl.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id)); }), { rootMargin: "-30% 0px -60% 0px" });
+ps.forEach(s => pio.observe(s));
+</script>

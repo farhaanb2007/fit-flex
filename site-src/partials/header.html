@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESC}}">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="{{PAGE}}">
+<div id="progress" aria-hidden="true"></div>
+<div class="bar">Free delivery on orders above <b>&#8377;499</b> across India. Now shipping to the UAE.</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Fit & Flex home"><img src="assets/img/logo.png" alt="Fit & Flex. Eat healthy, live well." width="160" height="96"></a>
+    <ul class="menu">
+      <li><a data-page="home" href="index.html">Home</a></li>
+      <li><a data-page="shop" href="shop.html">Shop</a></li>
+      <li><a data-page="story" href="story.html">Our story</a></li>
+      <li><a data-page="process" href="process.html">How it's baked</a></li>
+      <li><a data-page="contact" href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Search products"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="icon-btn" id="accountBtn" aria-label="Account"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
+      <button class="icon-btn" id="cartBtn" aria-label="Open bag"><svg class="ico" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H7"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="count" id="cartCount" hidden>0</span></button>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu"><svg class="ico" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <header>
+    <img src="assets/img/logo.png" alt="Fit & Flex" style="height:40px;width:auto">
+    <button class="icon-btn" id="closeMenu" aria-label="Close menu"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </header>
+  <ul>
+    <li><a data-page="home" href="index.html">Home</a></li>
+    <li><a data-page="shop" href="shop.html">Shop</a></li>
+    <li><a data-page="story" href="story.html">Our story</a></li>
+    <li><a data-page="process" href="process.html">How it's baked</a></li>
+    <li><a data-page="contact" href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<main>
