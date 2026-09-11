@@ -2,14 +2,14 @@
 
 Open `index.html` in a browser, or serve the folder:
 
-    cd site && python3 -m http.server 8765
+    python3 -m http.server 8765
     # then http://localhost:8765/
 
 Pages: index.html (home, video hero), shop.html (filters, sort, search results), product.html?id=<id> (gallery, sizes, bag), story.html, process.html, contact.html.
 
-Source lives in ../site-src (partials/header.html, partials/footer.html, pages/*.html). Rebuild with:
+Source lives in site-src (partials/header.html, partials/footer.html, pages/*.html). Rebuild with:
 
-    python3 ../site-src/build.py
+    python3 site-src/build.py
 
 Assets: assets/hero.mp4 and assets/oven.mp4 were generated with Higgsfield (Seedance 2.5) from the real Mango Coconut pack; assets/img/runner.jpg, oven.jpg and flatlay.jpg were generated with Higgsfield (GPT Image 2). All other product images are the brand's own from fitandflex.in.
 

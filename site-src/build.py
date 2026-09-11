@@ -2,7 +2,7 @@
 """Stitch partials + pages into the static site folder."""
 import re, os, sys
 SRC = os.path.dirname(os.path.abspath(__file__))
-OUT = "/Users/farhaanbaig/fit&flex/site"
+OUT = "/Users/farhaanbaig/fit&flex"
 header = open(f"{SRC}/partials/header.html").read()
 footer = open(f"{SRC}/partials/footer.html").read()
 for fn in sorted(os.listdir(f"{SRC}/pages")):

@@ -1,0 +1,7 @@
+site-src
+design-references
+.claude
+*.md
+fitandflex-redesign.html
+fitandflex-redesign.template.html
+.gitignore
