@@ -150,7 +150,7 @@ const FF = (() => {
     const step = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); const v = end * e; el.textContent = prefix + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString("en-IN")) + suffix; if (k < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   }
-  const cio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { countUp(en.target); cio.unobserve(en.target); } }), { threshold: .6 });
+  const cio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { countUp(en.target); cio.unobserve(en.target); } }), { threshold: .25 });
 
   // Pointer tilt on cards. Transform only, no layout work.
   function tilt(el){
