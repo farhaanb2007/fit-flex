@@ -42,7 +42,7 @@ const FF = (() => {
     { id:"puffs_onion", cat:"puffs", name:"Protein Puffs, Cream & Onion", sub:"Jowar and ragi, 12 g protein", price:{"6 x 55g":300}, sizes:["6 x 55g"], tint:"var(--aqua)", cover:true,
       images:["puffs_onion.jpg"], blurb:"The classic cream and onion, on roasted millet puffs.", claims:["12 g protein per pack","Roasted, not fried","Gluten free","No palm oil"], ingredients:"Jowar, ragi, pea protein, rice, sunflower oil, cream and onion seasoning. Contains milk." },
     { id:"puffs_combo", cat:"puffs", name:"Protein Puffs Variety Pack", sub:"Five flavours, 55 g each", price:{"5 x 55g":250}, sizes:["5 x 55g"], tint:"var(--puff)", tag:"Combo", cover:true,
-      images:["puffs_combo.jpg","puffs_combo_2.jpg"], blurb:"One of each flavour. The cheapest way to find your favourite.", claims:["12 g protein per pack","Roasted, not fried","Gluten free","Five flavours"], ingredients:"See individual flavours." }
+      images:["puffs_combo.jpg","puffs_combo_2.jpg","puffs_combo_3.jpg"], blurb:"One of each flavour. The cheapest way to find your favourite.", claims:["12 g protein per pack","Roasted, not fried","Gluten free","Five flavours"], ingredients:"See individual flavours." }
   ];
   const CATS = { granola:"Granola", muesli:"Muesli", oats:"Power Oats", puffs:"Protein Puffs" };
   const FREE_SHIP = 499;
