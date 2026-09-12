@@ -321,7 +321,7 @@
     btn.disabled = false; paint();
     if (!res.ok) { msg.textContent = res.error; return; }
     $("doneNo").textContent = "#" + res.order_no;
-    $("doneText").textContent = res.demo ? "Demo order recorded in this browser. Connect Supabase to save real orders and payments." : "Thank you. A confirmation is on its way to your inbox, and the parcel leaves Ahmedabad within one working day.";
+    $("doneText").textContent = res.demo ? res.note : "Thank you. A confirmation is on its way to your inbox, and the parcel leaves Ahmedabad within one working day.";
     $("doneSummary").innerHTML = `<div><span>Paid with</span><b>${method.split(":")[0].toUpperCase()}</b></div><div><span>Deliver to</span><b>${address.first} ${address.last}, ${address.city} ${address.pin}</b></div><div><span>Total</span><b>${fmt(t.total)}</b></div>`;
     document.querySelector(".co-grid").hidden = true; document.querySelector(".co-head").hidden = true; $("coDone").hidden = false; window.scrollTo({ top: 0, behavior: "smooth" });
   });

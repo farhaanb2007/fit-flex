@@ -179,16 +179,20 @@ const FF = (() => {
   // otherwise it records a demo order in this browser so the flow can be walked through.
   async function placeOrder(o){
     if (!o.items.length) return { ok: false, error: "Your bag is empty." };
+    let note = "";
     if (sb && user) {
       const { data, error } = await sb.from("orders").insert({ user_id: user.id, items: o.items, item_count: o.items.reduce((a, i) => a + i.qty, 0), subtotal: o.subtotal, shipping: o.shipping, total: o.total, payment_method: o.payment_method, shipping_address: o.shipping_address, note: o.discount ? `discount ${o.discount}` : null }).select("order_no").single();
-      if (error) return { ok: false, error: "Order failed: " + error.message };
-      cart = []; save(); render(); return { ok: true, order_no: data.order_no };
+      if (!error) { cart = []; save(); render(); return { ok: true, order_no: data.order_no }; }
+      note = "Saved in this browser only: the store database returned \"" + error.message + "\".";
+    } else if (sb) {
+      note = "Saved in this browser only. Sign in with Google to keep orders on your account.";
+    } else {
+      note = "Demo order recorded in this browser. Connect Supabase to save real orders.";
     }
-    if (sb && !user) return { ok: false, error: "Sign in with Google above to place a real order, or connect later." };
     let demo = []; try { demo = JSON.parse(localStorage.getItem("ff-orders") || "[]"); } catch (e) {}
     const order_no = 1000 + demo.length + 1;
     demo.push({ order_no, created_at: new Date().toISOString(), status: "placed", ...o }); try { localStorage.setItem("ff-orders", JSON.stringify(demo)); } catch (e) {}
-    cart = []; save(); render(); return { ok: true, order_no, demo: true };
+    cart = []; save(); render(); return { ok: true, order_no, demo: true, note };
   }
   function initAuth(){
     const acc = $("accountPanel"); if (!acc) return;
