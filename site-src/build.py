@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 """Stitch partials + pages into the static site folder."""
-import re, os, sys
+import re, os, sys, hashlib
 SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = "/Users/farhaanbaig/fit&flex"
 header = open(f"{SRC}/partials/header.html").read()
 footer = open(f"{SRC}/partials/footer.html").read()
+# cache-bust CSS/JS with a short content hash so browsers never serve a stale stylesheet after a deploy
+def ver(path):
+    return hashlib.sha1(open(f"{OUT}/{path}", "rb").read()).hexdigest()[:8]
+for asset in ("assets/style.css", "assets/site.js", "assets/config.js"):
+    v = ver(asset)
+    header = header.replace(f'"{asset}"', f'"{asset}?v={v}"')
+    footer = footer.replace(f'"{asset}"', f'"{asset}?v={v}"')
 for fn in sorted(os.listdir(f"{SRC}/pages")):
     raw = open(f"{SRC}/pages/{fn}").read()
     m = re.match(r"---\n(.*?)\n---\n(.*)", raw, re.S)
