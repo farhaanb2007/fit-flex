@@ -40,3 +40,20 @@ Built from the "Fit & Flex" strategy deck (Group 1): premium positioning without
 | 17-20 s | Four-pack hero lineup | Premium. Clean. Made for people who care. ₹109 per 100 g. Worth every rupee. No discounts. No compromise. |
 
 The founder is referenced in copy only; no generated likeness is used.
+
+## Manufacturing reel: `fitflex-manufacturing-reel.mp4`
+
+15 s, 1080x1920 (9:16), H.264 with AAC factory sound design. Footage from Higgsfield Seedance 2.5 (omni-reference); the six step captions are set in Bricolage Grotesque and Figtree and composited with ffmpeg, so the claims are exact. `fitflex-manufacturing-reel-clean.mp4` is the same footage with no captions.
+
+Answers the deck's point II: show the manufacturing site, because the process is the proof behind the premium price.
+
+| Step | Footage | Caption |
+|---|---|---|
+| 01 | Oats falling from the intake hopper onto a sifting deck | Whole rolled oats. Sifted and cleaned. Nothing else in the hopper. |
+| 02 | Fibre syrup poured over oats, almonds and pumpkin seeds | Fibre, not sugar. Prebiotic fibre syrup binds the mix. Lowest sugar in the category. |
+| 03 | Perforated belt carrying the mix into the glowing rotary oven | 360° slow-baked. European rotary oven. Every side bakes evenly. Only brand in India doing it. |
+| 04 | Baked clusters travelling the perforated cooling belt | Cooled into clusters. Slow cooling is what makes the crunch hold. |
+| 05 | Freeze-dried strawberry, blueberry and mango tipped from a chute | Real fruit, added cold. Freeze-dried after the bake, so it stays real. No preservatives. |
+| 06 | Form-fill-seal machine dropping granola into a Mango Coconut pouch | Sealed the same day. Filled, flushed and sealed. Straight to the pack you open. |
+
+No faces and no founder likeness appear; the line is shown, not the people.
