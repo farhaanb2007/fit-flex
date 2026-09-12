@@ -24,3 +24,19 @@ Ready to post as an Instagram Reel or YouTube Short without cropping.
 ## Alternate: `fitflex-reel-cgi-2k.mp4`
 
 Same storyboard rendered with MiniMax H3 at 1440x2560 (2K), silent. The macro ingredient shots are the most realistic of the set; the final hero frame shows two Happy Berries packs instead of one of each, so use this one for the ingredient close-ups or trim it before the last beat.
+
+## Promo ad: `fitflex-promo-ad.mp4`
+
+20 s, 1080x1920 (9:16), H.264 with AAC sound design. Footage generated with Higgsfield Seedance 2.5 (omni-reference, four pack shots); captions set in Bricolage Grotesque and Figtree and composited with ffmpeg so the claims are exact. `fitflex-promo-ad-clean.mp4` is the same footage without captions for re-editing.
+
+Built from the "Fit & Flex" strategy deck (Group 1): premium positioning without discounting.
+
+| Time | Footage | Caption |
+|---|---|---|
+| 0-4 s | Dawn track, runner lacing up and setting off (no face shown) | Our story: Built by an athlete who couldn't find a snack he trusted. |
+| 4-9 s | Factory conveyor into the glowing 360° ring oven | The only brand in India doing it: 360° slow-baked on European tech. |
+| 9-13 s | Macro clusters with fibre-syrup strands, almond, pumpkin seed | Lowest sugar in the category: Prebiotic fibre replaces most of the sugar. Gut health, built in. |
+| 13-17 s | Flat lay of freeze-dried fruit, oats, almonds, coconut | Read the back of the pack: Nothing to hide. Real freeze-dried fruit, no preservatives, no artificial flavours, gluten free, high protein. |
+| 17-20 s | Four-pack hero lineup | Premium. Clean. Made for people who care. ₹109 per 100 g. Worth every rupee. No discounts. No compromise. |
+
+The founder is referenced in copy only; no generated likeness is used.
