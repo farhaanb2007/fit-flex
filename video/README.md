@@ -20,3 +20,7 @@ Uses: Instagram Reels (crop to 9:16), the "How it's baked" page hero, trade show
 4. Hero (12-15 s): everything pours back in, the Happy Berries pouch joins, orange and navy rim light.
 
 Ready to post as an Instagram Reel or YouTube Short without cropping.
+
+## Alternate: `fitflex-reel-cgi-2k.mp4`
+
+Same storyboard rendered with MiniMax H3 at 1440x2560 (2K), silent. The macro ingredient shots are the most realistic of the set; the final hero frame shows two Happy Berries packs instead of one of each, so use this one for the ingredient close-ups or trim it before the last beat.
